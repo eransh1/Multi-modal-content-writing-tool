@@ -1,4 +1,5 @@
 import { FONT_FAMILY_OPTIONS, FONT_SIZE_OPTIONS, INSERT_OPTION, TEXT_ALLIGNMENT_OPTION, TEXT_FORMATTING_OPTION, TEXT_STYLING_OPTION } from "../../common/constants";
+import Action from "../atoms/Action";
 import ColorStyling from "../atoms/ColorStyling";
 import Formatting from "../atoms/Formatting";
 import FormattingWrapper from "../atoms/FormattingWrapper";
@@ -10,11 +11,13 @@ const Toolbar = ({
     fontSize,
     handleFontSizeChange,
     execCommand,
-    insertBlock
+    insertBlock,
+    undo,
+    redo
 }) => {
     return (
         <>
-            <div className="flex flex-wrap items-center gap-2 mb-4 border-b pb-2">
+            <div className="flex flex-wrap items-center gap-2 mb-4 border-b pb-2 select-none">
                 {/* Font Family */}
                 <FormattingWrapper title={'Text Styling'}>
 
@@ -36,6 +39,12 @@ const Toolbar = ({
                 <Formatting execCommand={execCommand} title={'List Styling'} options={TEXT_STYLING_OPTION} />
 
                 <Formatting execCommand={insertBlock} title={'Insert'} options={INSERT_OPTION} />
+
+                <FormattingWrapper title={'Action'}>
+                    <Action text={'Undo'} callback={undo}/>
+                    <Action text={'Redo'} callback={redo}/>
+                </FormattingWrapper>
+
 
             </div>
         </>
