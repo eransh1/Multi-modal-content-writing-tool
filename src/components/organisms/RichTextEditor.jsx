@@ -66,7 +66,7 @@ const RichTextEditor = () => {
         onInput={() =>
           withEditorContext(saveSnapshot, editorContext)({})
         }
-        className="border rounded p-4 min-h-[300px] focus:outline-none bg-white prose prose-sm max-w-none list-disc list-inside"
+        className="border rounded p-4 min-h-[300px] focus:outline-none prose prose-sm max-w-none list-disc list-inside"
       >
         <p>Start editing here...</p>
       </div>
